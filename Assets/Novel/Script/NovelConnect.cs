@@ -17,6 +17,8 @@ public class NovelConnect : MonoBehaviour
 
     private async UniTask Task(CancellationToken ct)
     {
+        var cm = _runtime.ReturnNovel();
+        NovelEvent.ActionInvoke(cm);
         while (true)
         {
             await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.Z), cancellationToken: ct);
